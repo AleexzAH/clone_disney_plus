@@ -4,6 +4,7 @@
   "description": "Repositório dedicado a estudos. Copiando a estrutura da landing page do Disney Plus.",
   "main": "index.js",
   "scripts": {
+    "dev": "gulp watch",
     "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/AleexzAH/clone_disney_plus#readme",
   "devDependencies": {
     "gulp": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-sass": "^6.0.1",
     "sass": "^1.94.2"
   }
