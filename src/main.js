@@ -1,7 +1,23 @@
 addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll('[data-tab-button]');
     const questions = document.querySelectorAll('[data-faq-question]');
-    
+
+    const heroSection = this.document.querySelector('.hero');
+    const alturaDoHero = heroSection.clientHeight;
+
+    window.addEventListener('scroll', function() {
+        const posicaoAtual = window.scrollY
+
+        if(posicaoAtual < alturaDoHero){
+            ocultaElementosHeader();
+        } else {
+            exibeElementosHeader();
+        }
+
+    })
+
+
+    //Sessão da programação e abas
     for (let i = 0; i < buttons.length; i++){
         buttons[i].addEventListener('click', function(botao) {
             const abaAlvo = botao.target.dataset.tabButton;
@@ -14,6 +30,7 @@ addEventListener("DOMContentLoaded", function() {
         })
     }
 
+    //Sessão do FAQ, Accordions
     for (let i = 0; i < questions.length; i++){
         questions[i].addEventListener('click', abreOuFechaResposta);
     }
@@ -39,4 +56,14 @@ function escondeTodasAbas (){
     for (let i = 0; i < tabsContainers.length; i++){
         tabsContainers[i].classList.remove('shows__list--is-active')
     }
+}
+
+function ocultaElementosHeader() {
+    const header = document.querySelector('.header');
+    header.classList.add('header--is--hidden');
+}
+
+function exibeElementosHeader() {
+    const header = document.querySelector('.header');
+    header.classList.remove('header--is--hidden');
 }
